@@ -1,0 +1,835 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hexo,博客,hexo3,blog,github pages,免费个人博客" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="django路由和模板的初步学习 #利用路由对地址栏获取和操作假设之前建立的项目名称叫testPython工程名字叫learn，进入learn/views.py文件：123456789101112from django.shortcuts import renderfrom django.http import HttpResponse def add(request):    a = reque">
+<meta name="keywords" content="hexo,博客,hexo3,blog,github pages,免费个人博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="django 初学(二)">
+<meta property="og:url" content="http://lanbos.win/2015/11/03/python/django_base02/index.html">
+<meta property="og:site_name" content="lanbos&#39;blog">
+<meta property="og:description" content="django路由和模板的初步学习 #利用路由对地址栏获取和操作假设之前建立的项目名称叫testPython工程名字叫learn，进入learn/views.py文件：123456789101112from django.shortcuts import renderfrom django.http import HttpResponse def add(request):    a = reque">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-09T08:02:30.666Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="django 初学(二)">
+<meta name="twitter:description" content="django路由和模板的初步学习 #利用路由对地址栏获取和操作假设之前建立的项目名称叫testPython工程名字叫learn，进入learn/views.py文件：123456789101112from django.shortcuts import renderfrom django.http import HttpResponse def add(request):    a = reque">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanbos.win/2015/11/03/python/django_base02/"/>
+
+
+
+
+
+  <title> django 初学(二) | lanbos'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lanbos'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">这个人假装很懒，什么都没有留下</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://lanbos.win/2015/11/03/python/django_base02/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="lanbos">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="lanbos'blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="lanbos'blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                django 初学(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-11-03T08:55:29+08:00">
+                2015-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coder/" itemprop="url" rel="index">
+                    <span itemprop="name">码畜相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>django路由和模板的初步学习</p>
+<p>#利用路由对地址栏获取和操作<br>假设之前建立的项目名称叫testPython工程名字叫learn，进入<em>learn/views.py</em>文件：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(request)</span>:</span></span><br><span class="line">    a = request.GET[<span class="string">'a'</span>]</span><br><span class="line">    b = request.GET[<span class="string">'b'</span>]</span><br><span class="line">    c = int(a)+int(b)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(str(c))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add2</span><span class="params">(request, a, b)</span>:</span></span><br><span class="line">    c = int(a) + int(b)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(str(c))</span><br></pre></td></tr></table></figure></p>
+<p>再进入<em>testPython/urls.py</em>文件：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url</span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> calc <span class="keyword">import</span> views <span class="keyword">as</span> calc_views</span><br><span class="line"> </span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^add/$'</span>, calc_views.add, name=<span class="string">'add'</span>),</span><br><span class="line">    url(<span class="string">r'^add/(\d+)/(\d+)/$'</span>, calc_views.add2, name=<span class="string">'add2'</span>),</span><br><span class="line">    url(<span class="string">r'^admin/'</span>, admin.site.urls),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>这样我们可以通过地址栏进行两个参数的加减法运算：<br>1.第一种为传参运算，在浏览器地址栏中输入<em><a href="http://127.0.0.1:5000/learn/add/?a=4&amp;b=5" target="_blank" rel="noopener">http://127.0.0.1:5000/learn/add/?a=4&amp;b=5</a></em>页面显示结果为9；<br>2.为地址运算，在地址栏输入<em><a href="http://127.0.0.1:5000/learn/add/7/8/" target="_blank" rel="noopener">http://127.0.0.1:5000/learn/add/7/8/</a></em>页面小时结果为15.</p>
+<p>##路由中url的name属性<br>name属性主要用来对应模板文件，修改<em>learn/views.py</em>:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'home.html'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>render是渲染模板的函数，此时之前应该已修改项目目录下的<em>settings.py</em>文件，把learn加入了app列表中。随后在<em>learn</em>文件中新建文件夹<em>templates</em>并在文件夹中新建文件：<em>home.html</em>,在<em>learn/templates/home.html</em>中写入：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/learn/add?a=4&amp;b=5"</span>&gt;</span>计算 4+5<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后在<em>testPython/urls.py</em>文件中继续添加：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    <span class="comment"># url(r'^learn/index/$',learn.views.index),</span></span><br><span class="line">    url(<span class="string">r'^admin/'</span>, admin.site.urls),</span><br><span class="line">    url(<span class="string">r'^learn/add/$'</span>,learn.views.add,name=<span class="string">"add"</span>),</span><br><span class="line">    url(<span class="string">r'^learn/add/(\d+)/(\d+)/$'</span>,learn.views.add2,name=<span class="string">"add2"</span>),</span><br><span class="line">    url(<span class="string">r'^$'</span>,learn.views.index,name=<span class="string">"home"</span>),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>这样用浏览器输入<em><a href="http://127.0.0.1:5000/" target="_blank" rel="noopener">http://127.0.0.1:5000/</a></em>就进入了home页，点击链接后跳转到计算页面，进行计算。</p>
+<p>##django模板<br>虽然在实际的开发过程中通常会采用前后分离的开发方式，模板渲染的过程会交给前端js来完成，但是有一些常见的参数还需要在django中完成获取和渲染，还有部分参数需要django放置到html的隐藏域中，js通过dom操作来获取。进入<em>learn/views.py</em>，修改为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    page_info=&#123;</span><br><span class="line">    <span class="string">"pageName"</span>:<span class="string">"home"</span>,</span><br><span class="line">    <span class="string">"pageNum"</span>:<span class="number">0</span>,</span><br><span class="line">    <span class="string">"pageList"</span>:[<span class="string">"jquery"</span>,<span class="string">"ng"</span>,<span class="string">"underscore"</span>,<span class="string">"echarts"</span>]</span><br><span class="line">    &#125;	</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'learn/home.html'</span>,&#123;<span class="string">"pageInfo"</span>:json.dumps(page_info)&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>注意，python的字典必须用json.dumps()转换为前端可以识别的json格式，否则前端无法转换为对象。再打开learn/templates/learn/home.html进行更改(注意，一定要在templates文件夹下建一个和app名字相同的文件夹，html文件要放在这个文件夹下，这样可以防止多个app中的html文件名字冲突导致django识别模版错误)：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/learn/add?a=4&amp;b=5"</span>&gt;</span>计算 4+5<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;request.path&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>当前网址<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;request.GET.urlencode&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>当前get参数<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> domNew=<span class="built_in">document</span>.getElementById(<span class="string">'pageInfo'</span>);</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> domInfo=domNew.getAttribute(<span class="string">"backInfo"</span>);</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(domInfo);</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> infoDic=<span class="built_in">JSON</span>.parse(domInfo);<span class="comment">//把json格式的字符串转换为js的对象</span></span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(infoDic);</span></span><br><span class="line"><span class="javascript">	<span class="built_in">console</span>.log(infoDic.pageNum);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>然后访问<em><a href="http://127.0.0.1:5000/?getInofo=1" target="_blank" rel="noopener">http://127.0.0.1:5000/?getInofo=1</a></em>打开控制台在控制台中就可以看到输出内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"pageName"</span>: <span class="string">"home"</span>, <span class="string">"pageList"</span>: [<span class="string">"jquery"</span>, <span class="string">"ng"</span>, <span class="string">"underscore"</span>, <span class="string">"echarts"</span>], <span class="string">"pageNum"</span>: <span class="number">0</span>&#125;</span><br><span class="line">&#123;<span class="attr">pageName</span>: <span class="string">"home"</span>, <span class="attr">pageList</span>: <span class="built_in">Array</span>[<span class="number">4</span>], <span class="attr">pageNum</span>: <span class="number">0</span>&#125;</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>页面显示出当前网址和get的参数。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/django/" rel="tag"># django</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/10/python/django_base01/" rel="next" title="django 初学(一)">
+                <i class="fa fa-chevron-left"></i> django 初学(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/11/python/django_base03/" rel="prev" title="django 初学(三)mysql">
+                django 初学(三)mysql <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2123221"></script>
+<!-- UY END -->
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg"
+               alt="lanbos" />
+          <p class="site-author-name" itemprop="name">lanbos</p>
+          <p class="site-description motion-element" itemprop="description">这个人假装很懒，什么都没有留下</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/lanbos" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://git.oschina.net/lanbos_document" target="_blank" title="oschina">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  oschina
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lanbos" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lanbos</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+<script type="text/javascript">
+  // Popup Window;
+  var isfetched = false;
+  // Search DB path;
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  // monitor main search box;
+
+  function proceedsearch() {
+    $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+    $('.popup').toggle();
+  }
+  // search function;
+  var searchFunc = function (path, search_id, content_id) {
+    $.ajax({
+      url: path,
+      dataType: "xml",
+      async: true,
+      success: function (xmlResponse) {
+        // get the contents from search data
+        isfetched = true;
+        $('.popup').detach().appendTo('.header-inner');
+        var datas = $("entry", xmlResponse).map(function () {
+          return {
+            title: $("title", this).text(),
+            content: $("content", this).text(),
+            url: $("url", this).text()
+          };
+        }).get();
+        var $input = document.getElementById(search_id);
+        var $resultContent = document.getElementById(content_id);
+        $input.addEventListener('input', function () {
+          var matchcounts = 0;
+          var str = '<ul class=\"search-result-list\">';
+          var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+          $resultContent.innerHTML = "";
+          if (this.value.trim().length > 1) {
+            // perform local searching
+            datas.forEach(function (data) {
+              var isMatch = false;
+              var content_index = [];
+              var data_title = data.title.trim().toLowerCase();
+              var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+              var data_url = decodeURIComponent(data.url);
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty titles and contents
+              if (data_title != '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+                  if (index_title >= 0 || index_content >= 0) {
+                    isMatch = true;
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                  }
+
+                });
+              }
+              // show search results
+              if (isMatch) {
+                matchcounts += 1;
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title +
+                  "</a>";
+                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+                  if (start < 0) {
+                    start = 0;
+                  }
+                  if (start == 0) {
+                    end = 50;
+                  }
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+                  var match_content = content.substring(start, end);
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" +
+                      keyword + "</b>");
+                  });
+
+                  str += "<p class=\"search-result\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            })
+          };
+          str += "</ul>";
+          if (matchcounts == 0) {
+            str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+          }
+          if (keywords == "") {
+            str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+          }
+          $resultContent.innerHTML = str;
+        });
+        proceedsearch();
+      }
+    }).fail(function (data, errStr, err) {
+      console.log(errStr);
+      console.log(err);
+    })
+  }
+
+  // handle and trigger popup window;
+  $('.popup-trigger').click(function (e) {
+    e.stopPropagation();
+    if (isfetched == false) {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+    } else {
+      proceedsearch();
+    };
+  });
+
+  function renderData(xmlResponse) {
+
+  }
+
+  $('.popup-btn-close').click(function (e) {
+    $('.popup').hide();
+    $(".popoverlay").remove();
+    $('body').css('overflow', '');
+  });
+  $('.popup').click(function (e) {
+    e.stopPropagation();
+  });
+
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

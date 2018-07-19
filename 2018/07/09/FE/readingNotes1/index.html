@@ -1,0 +1,937 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js h5," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="《移动网页设计与开发html5+css3+javascript》一书写于2013年，在前端书籍中还算比较新的一本，当时html5，智能手机已经兴起，书中介绍的许多新技术在当今有一些已经是很普及的技术(css媒体查询，svg，canvas等)，还有很多技术因为国情还需兼容ie低版本和所谓的“手机上的ie”——腾讯的“x5内核”，所以没能普及（弹性盒子，web storage，视频音频基本API等）。">
+<meta name="keywords" content="js h5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《移动网页设计与开发html5+css3+javascript》读书笔记">
+<meta property="og:url" content="http://lanbos.win/2018/07/09/FE/readingNotes1/index.html">
+<meta property="og:site_name" content="lanbos&#39;blog">
+<meta property="og:description" content="《移动网页设计与开发html5+css3+javascript》一书写于2013年，在前端书籍中还算比较新的一本，当时html5，智能手机已经兴起，书中介绍的许多新技术在当今有一些已经是很普及的技术(css媒体查询，svg，canvas等)，还有很多技术因为国情还需兼容ie低版本和所谓的“手机上的ie”——腾讯的“x5内核”，所以没能普及（弹性盒子，web storage，视频音频基本API等）。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png">
+<meta property="og:updated_time" content="2018-07-09T08:02:30.662Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《移动网页设计与开发html5+css3+javascript》读书笔记">
+<meta name="twitter:description" content="《移动网页设计与开发html5+css3+javascript》一书写于2013年，在前端书籍中还算比较新的一本，当时html5，智能手机已经兴起，书中介绍的许多新技术在当今有一些已经是很普及的技术(css媒体查询，svg，canvas等)，还有很多技术因为国情还需兼容ie低版本和所谓的“手机上的ie”——腾讯的“x5内核”，所以没能普及（弹性盒子，web storage，视频音频基本API等）。">
+<meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanbos.win/2018/07/09/FE/readingNotes1/"/>
+
+
+
+
+
+  <title> 《移动网页设计与开发html5+css3+javascript》读书笔记 | lanbos'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lanbos'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">这个人假装很懒，什么都没有留下</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://lanbos.win/2018/07/09/FE/readingNotes1/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="lanbos">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="lanbos'blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="lanbos'blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《移动网页设计与开发html5+css3+javascript》读书笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-09T16:02:30+08:00">
+                2018-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coder/" itemprop="url" rel="index">
+                    <span itemprop="name">码畜相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>《移动网页设计与开发html5+css3+javascript》一书写于2013年，在前端书籍中还算比较新的一本，当时html5，智能手机已经兴起，书中介绍的许多新技术在当今有一些已经是很普及的技术(css媒体查询，svg，canvas等)，还有很多技术因为国情还需兼容ie低版本和所谓的“手机上的ie”——腾讯的“x5内核”，所以没能普及（弹性盒子，web storage，视频音频基本API等）。书中还有部分前沿性的概念直到现在浏览器还没有实现其功能（原生web组件化，复杂的设备API）。</p>
+<h2 id="flexbox弹性盒子布局"><a href="#flexbox弹性盒子布局" class="headerlink" title="flexbox弹性盒子布局"></a>flexbox弹性盒子布局</h2><p>flexbox布局技术已经很成熟了，但是因为之前微信采用的x5内核很长一段时间没有支持，导致使用的人并不多，知名的<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰的blog</a>已经对flexbox布局方式做了详细的解释。这里结合书中58页内容和blog一起总结一下，简单记录作为备忘，对没看过的人的作为一个简单了解。<br><a id="more"></a></p>
+<h3 id="1-使用flexbox"><a href="#1-使用flexbox" class="headerlink" title="1.使用flexbox"></a>1.使用flexbox</h3><p>在css中用display把元素设置为弹性盒子。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*或者设置为行内元素*/</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意，设为Flex布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。</p>
+<h3 id="2-基本概念"><a href="#2-基本概念" class="headerlink" title="2.基本概念"></a>2.基本概念</h3><p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png" alt=""></p>
+<hr>
+<p>上图已经很好的体现了flexbox的基本概念<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">main axis =》水平的主轴 x轴</span><br><span class="line">cross axis =》垂直的交叉轴 y轴</span><br><span class="line">main start =》主轴的开始位置（与边框的交叉点）</span><br><span class="line">cross end =》主轴的结束位置（与边框的交叉点）</span><br><span class="line">cross start  =》交叉轴的开始位置</span><br><span class="line">cross end  =》交叉轴的结束位置</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-属性设置及例子"><a href="#3-属性设置及例子" class="headerlink" title="3.属性设置及例子"></a>3.属性设置及例子</h3><ul>
+<li>flex-direction 主轴方向 x轴方向，甚至能和y轴互换</li>
+<li>flex-wrap 换行方式</li>
+<li>flex-flow 流动方式（上两个的简写方式）</li>
+<li>justify-content 主轴对齐方式</li>
+<li>align-items 交叉轴对齐方式</li>
+<li>align-content 多根轴线的对齐方式</li>
+</ul>
+<p>原文中详尽的解释了这些属性的作用，我把这种新的布局方法实现用positon和float布局的方式做个对应。</p>
+<hr>
+<h4 id="水平排列"><a href="#水平排列" class="headerlink" title="水平排列"></a>水平排列</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fItem</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">flex-flow</span>:row wrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fItem</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="水平居右反排列"><a href="#水平居右反排列" class="headerlink" title="水平居右反排列"></a>水平居右反排列</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fItem</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">flex-flow</span>:row-reverse wrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fItem</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="水平居右正排列"><a href="#水平居右正排列" class="headerlink" title="水平居右正排列"></a>水平居右正排列</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fItem</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">   <span class="attribute">justify-content</span>:flex-end;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fItem</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">旧的方式使用定位和负边距居中，或者设置为<span class="selector-tag">blog</span>利用<span class="selector-tag">margin</span><span class="selector-pseudo">:auto</span>居中,比较繁琐</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">justify-content</span>:center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fItem</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="导航常用的设置：等距水平排列"><a href="#导航常用的设置：等距水平排列" class="headerlink" title="导航常用的设置：等距水平排列"></a>导航常用的设置：等距水平排列</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">旧的方式需要使用浮动和宽度计算实现，比较繁琐</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">  <span class="attribute">justify-content</span>:space-around;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fItem</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到弹性盒子可以通过简单的属性配置就能代替float属性的绝大多数使用情况，而且不用引入伪类来清除浮动，或者引用<code>overflow:hidden</code>这种后患无穷的清浮动方式。<br>弹性盒子布局的强大之处除了在水平方向的代替float方案，更强大的是在垂直方向的使用。很大程度上大体了position的使用。</p>
+<hr>
+<p>全部子元素靠下排列<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrap</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fItem</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">   <span class="attribute">justify-content</span>:flex-start;</span><br><span class="line">   <span class="attribute">align-items</span>:flex-end;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fItem</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>水平垂直居中<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是经典面试题，各种各样的方法和奇技淫巧可以实现</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fBox</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>:flex;</span><br><span class="line">   <span class="attribute">justify-content</span>:center;</span><br><span class="line">   <span class="attribute">align-items</span>:center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fItem</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="子元素属性及特殊用法"><a href="#子元素属性及特殊用法" class="headerlink" title="子元素属性及特殊用法"></a>子元素属性及特殊用法</h3><p>弹性盒子之所以称之为“弹性”不仅仅是因为上述的几种简化了的布局的方式，更是因为在设置为<code>display:flex</code>后的元素的子元素上可以设置更为“弹性的方法”</p>
+<ul>
+<li>order 子元素排序</li>
+<li>flex-grow 子元素弹性放大</li>
+<li>flex-shrink 子元素弹性缩小</li>
+<li>flex-basis 子元素宽度</li>
+<li>flex 是flex-basis，flex-grow，flex-shrink的简写方式</li>
+<li>align-self 设置子元素独特的align-items</li>
+</ul>
+<p>上述方法在blog上有详细的描述。但是除了可以预料到的order属性和align-self外（这两个属性非常的强大，在布局中对特殊元素的处理会起很大的作用），真正所谓的弹性属性<code>flex</code>却缺少使用场景，原因下面阐述。</p>
+<h3 id="关于flexbox和响应式网站"><a href="#关于flexbox和响应式网站" class="headerlink" title="关于flexbox和响应式网站"></a>关于flexbox和响应式网站</h3><h4 id="要不要响应式"><a href="#要不要响应式" class="headerlink" title="要不要响应式"></a>要不要响应式</h4><p>书中对弹性盒子布局的描述主要是为了网格布局和响应式网站做铺垫。很明显flex属性在响应式网站开发中会发挥巨大作用。最近的消息是全球最流行的web前端ui框架<code>bootstrap</code>也在新版本中放弃了传统的布局方式，全面使用了flexbox布局。更令国内开发者鼓舞的消息是腾讯x5内核也在今年的新版本中大大兼容了flexbox。而在全球范围内flexbox的兼容性也不用多有顾虑<a href="http://caniuse.com/#feat=flexbox" target="_blank" rel="noopener">can I use</a><br>但是响应式网站的根本问题是不适合定制化的制作，更适合模板网站的推广。<br>像网站后台界面、blog的皮肤等场景，只需简单且固定的布局方式，无需复杂的展现方式是非常适合响应式开发的。但是当复杂的定制化需求时，当前国内网站开发的工作流是，专门的ui设计人员，专门的web前端人员和服务器端的人员这种配合开发方式。响应式开发对于ui设计的要求太高，而且前端开发并没有提高很大的开发效率，一样要写很多的媒体查询断点。而网站天然具有的界面易变性导致当需求有变动时，响应式网站很难改动。所以响应式网站在实际开发中并不多做考虑。但是flexbox那些可以代替定位和浮动的便利性功能在移动端可以放心的使用了，这也是flexbox布局最大的作用。</p>
+<h4 id="什么时候不用flexbox"><a href="#什么时候不用flexbox" class="headerlink" title="什么时候不用flexbox"></a>什么时候不用flexbox</h4><p>使用了flexbox后并不是要完全舍弃传统的position和float，而是让他们回归到他们原本在创立之初时就本应使用的地方——脱离文档流操作即z轴布局。可以说flexbox提供了较为完备的x轴、y轴解决方案，而当布局需要在z轴方向有布局要求时，使用position和float才是最合适的方式。</p>
+<h2 id="web组件"><a href="#web组件" class="headerlink" title="web组件"></a>web组件</h2><p>书中175页开始对web组件的描述做了展望，提到了<code>模板，样式封装，自定义元素，shadow DOM</code>四个概念。不知道写书时<code>react</code>是否已经出现，但是<code>react</code>框架和近来很火的<code>vue</code>是这四个概念完整的体现。<br>传统的前端代码组件方式为html文件，css文件夹，js文件夹，资源文件夹，当前端项目很小时，代码复用没有很高的要求，这样可以很好的配合后台的mvc架构。而如今前后分离的开发方式是主流，spa大行其道，前端功能越来越复杂，甚至包括要处理路由等功能。这种情况下，组件化的开发方式更能提高代码的复用率，而且以组件为单位维护复杂的网页更合理简便。</p>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><p>书中描述的模板的使用是在html底层来解决，而当前的开发方式用到的模板还是在js中实现的，js模板引擎有很多（这里就不分在后台还是前端使用了），ejs、jade、doT、<a href="https://github.com/aui/artTemplate#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B" target="_blank" rel="noopener">artTemplate</a>等，配合文章中提到的在div内部封装style标签来整合样式能基本完成简单的web组件化封装。而<code>react</code>中的jsx和其他现代化框架中的模板配合前端自动化工具的实现才更符合书中提到的web组件化的封装形态。</p>
+<h3 id="样式封装和自定义元素"><a href="#样式封装和自定义元素" class="headerlink" title="样式封装和自定义元素"></a>样式封装和自定义元素</h3><p>css预处理器less和sass提供了css编程的效果，也打下样式封装的基础。自定义元素也只能通过js的预处理才能完整的实现。之前这种预处理过程基本都是由开发者的ide或者一些其他语言的脚本工具来实现，所以应用并没有非常的广泛。而nodejs的发展让web前端开发带来了新的活力。<br>nodejs开发之初是让js跑在服务器中，让jser更加的渗透到全栈领域，但是nodejs真正影响巨大的是通过制作前端工具来改变前端的开发。grunt，gulp，webpack等前端自动化构建工具的诞生彻底颠覆了传统的前端开发流程，这些工具利用node预先编译的形式完成了web组件在开发形式上的道路。同时也推动了很多前端mv*框架的诞生。<br>2017年最火的三个前端框架肯定是angular，react，vue无疑，中小型项目选型又可以放弃angular这种臃肿的解决方案，vue和react都支持组件化开发（angular也有组件化解决方案），特别是react初始就采用的jsx语法（vue在2.0版本也开始支持jsx），完美的封装了web组件，这里又得提到<a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="noopener">阮一峰的blog</a>罗列了react开发用到的技术栈。react和vue的开发又可以展开说很多这里就不做赘述了。</p>
+<h3 id="shadow-DOM"><a href="#shadow-DOM" class="headerlink" title="shadow DOM"></a>shadow DOM</h3><p>shadow DOM的概念非常的好，是解决web组件化封装和性能的一种很好的方案，但是现代前端框架对dom性能的解决方案是Virtual DOM。这两种概念容易混淆。</p>
+<blockquote>
+<p>Virtual DOM不是DOM，只是DOM的一种（经过优化的）映射，JS代码操作Virtual DOM获得更好的渲染性能，因为直接操作DOM额外开销太大。</p>
+<p>Shadow DOM是指浏览器的一种能力，它允许在文档（document）渲染时插入一棵DOM元素子树，但是这棵子树不在主DOM树中。</p>
+</blockquote>
+<p>二者的形态都是dom的一种映射， <code>Virtual DOM</code>是为了避免dom操作浪费性能用js模拟dom的解决方案，而<code>Shadow DOM</code>是html dom中利用特殊声明放置的一层无法用通常意义上的js选择器和css选择器来获取的dom，可能因为兼容性问题和操作的不便利性没有被其他框架所采用来映射dom操作和组件化封装。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>下面对书中的提到四个概念和现代前端框架的解决方案作一个简单的对照：</p>
+<ul>
+<li>模板 =》各式的template，jsx</li>
+<li>样式封装 =》webpack 等自动化工具预处理</li>
+<li>自定义元素 =》webpack 等自动化工具预处理</li>
+<li>shadow DOM =》没有被采用，封装和性能方案被webpack 等自动化工具预处理与Virtual DOM代替。</li>
+</ul>
+<p>虽然html5并没有从底层上有好的web组件化解决方案，但是以上提到的现代化的工具和框架已经用另一种方式实现了书中展望的web组件化，让开发者已经享受到了web组件化的便利性。</p>
+<h2 id="html5图片解决方案（svg图片和canvas）"><a href="#html5图片解决方案（svg图片和canvas）" class="headerlink" title="html5图片解决方案（svg图片和canvas）"></a>html5图片解决方案（svg图片和canvas）</h2><p>在移动优先为主的开发模式下，位图的能伸缩不变形的优势显的越来越重要，svg和canvas是矢量图在web上的两种最常见的解决方式，书中123页谈了svg格式和canvas格式的选择，总而就是svg更利于编辑，canvas性能更有优势。<br>svg有很大的便利性和定制性，首先常见的位图设计工具ai和sketch等都可以导出svg，这对当前设计+前端+后台的web开发方式可以基本照搬使用，而且因为保留了基本的dom结构，也可以对其进行简单的js操作和css操作。但是这种看起来美好的格式却因为位图本身无法简便的制作高光阴影等效果，色彩较为单一等缺点一直无法得到重用。当前移动端图片适配还是通过大图片（@2、@3等）通过等比例压缩来保持清晰度和不同尺寸的适配。反而canvas的使用情况较多，canvas可以在浏览器端简单的处理图片（裁切，加滤镜，压缩等），而且因为其高性能性，复用程度高，定制化需求的低的一些模板图表，简单动画等都采用了canvas技术。canvas在html5游戏中也起到了非常重要的作用，较多html5游戏引擎都是基于canvas和webgl技术来实现的。canvas技术在前端圈火爆了一阵，似乎很多人都在学用canvas画一些简单的图画，但是其实复杂绘图和动画制作这种功能并不适合用代码来实现，更多的是用软件工具来进行所见即所得的编辑。<br>复杂的canvas使用就不在这里详细阐述了，总之canvas在前端的使用更多是配合一些图形算法来进行图像的简单操作，html5的图片适应问题仍旧没有很完美的解决方案。</p>
+<h2 id="html5多媒体"><a href="#html5多媒体" class="headerlink" title="html5多媒体"></a>html5多媒体</h2><h3 id="终究会是网络多媒体时代"><a href="#终究会是网络多媒体时代" class="headerlink" title="终究会是网络多媒体时代"></a>终究会是网络多媒体时代</h3><p>坐着写书时flash仍在web上有着很大的一席之地，但是到今天，flash已经彻底被主流所舍弃，国外大多的视频网站都放弃了flash，国内的视频也在今年逐渐的转型。多媒体+交互其实是网站的终极形态，苹果官网和一些很注重设计元素的网站，很多都用一个大的视频当做了网站的banner，今年很多的非常热的营销h5也逐渐加入了多媒体与用户交互的元素。可以预见，当运营商基础设施逐渐好时，人们的网速都达到一定程度时网站必将会产生分化，大多不注重有阅读元素的网站终究转换为视频+交互的网站，直播和小视频的愈演愈热就是直接的证明。</p>
+<h3 id="常见api分析"><a href="#常见api分析" class="headerlink" title="常见api分析"></a>常见api分析</h3><p><a href="http://yanhaijing.com/html/2016/03/12/html5-video/" target="_blank" rel="noopener">HTML5视频的那些事儿</a>一文中详细解释了视频相关的问题：<br>总结就是 兼容选mp4格式，没有定制化需求  使用jwplayer等第三方播放软件（最近很火的是b站开源的flv.js是一个flv格式解决方案，可以多加关注），有定制化需求的看api：<br>html5提供的多媒体api不算丰富只能说够用，大体常用的只有播放，暂停，进度，缓存等，列一个总目录：</p>
+<ul>
+<li><a href="http://www.w3school.com.cn/jsref/dom_obj_video.asp" target="_blank" rel="noopener">属性列表</a></li>
+<li><a href="http://www.w3school.com.cn/jsref/dom_obj_video.asp" target="_blank" rel="noopener">方法列表</a></li>
+<li><a href="http://www.w3school.com.cn/tags/html_ref_eventattributes.asp" target="_blank" rel="noopener">事件列表</a></li>
+</ul>
+<p>书中则阐述了进度条设置和播放暂停的实例可以作为对照。<br>推荐两篇blog，对常见video和audio的使用做了很好的实践<br><a href="http://www.frontopen.com/3122.html" target="_blank" rel="noopener">HTML5中使用js控制audio标签的方法</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Using_HTML5_audio_and_video" target="_blank" rel="noopener">使用 HTML5 音频和视频</a></p>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>html5多媒体更深层次的使用需要对视频和音频的底层进行了解，而且html5对视频仅仅是提供够用的api还是满足不了一些更复杂的交互要求，如广告插入，视频深层交互等功能。这也是当前很多公司没有放弃flash的原因。</p>
+<h2 id="设备API"><a href="#设备API" class="headerlink" title="设备API"></a>设备API</h2><h3 id="web-storage"><a href="#web-storage" class="headerlink" title="web storage"></a>web storage</h3><p>设备API中用到的最多的就是web storage，书中101页开始简单描述了<code>web storage</code>的使用，作为代替cookie成为浏览器储存的方案<code>web storage</code>的使用很便捷：</p>
+<ul>
+<li>.setItem( key, value) 存储</li>
+<li>.getItem(key) 提取</li>
+<li>.removeItem(key) 删除</li>
+<li>.clear() 全部清除</li>
+</ul>
+<p>若是排除ie8的兼容考虑，浏览器的离线缓存方案完全可以用local storage来实现，而页面间的通信则可以使用local storage和session storage实现。书中这张的最后也提到了更现代化的IndexedDB——<a href="http://javascript.ruanyifeng.com/bom/indexeddb.html" target="_blank" rel="noopener">浏览器端数据库</a>可以作为储备了解。</p>
+<h3 id="其他设备API"><a href="#其他设备API" class="headerlink" title="其他设备API"></a>其他设备API</h3><p>更多的api开放是html5变得强大的根本，很多html5的设备api的使用大大提高了网页和用户的交互方式，如摄像头、麦克风、定位、方向、震动等等，书中做了简单的阐述和事例，当用到的这些api的时候可以查阅来做启发。<br>看到和想到的几个利用新设备api很好的交互方式，有待实践：</p>
+<ul>
+<li>利用方向api+3d贴图使做一些3d动画交互效果</li>
+<li>地理定位API的地图和ar交互</li>
+<li>利用网络信息api检测用户网络条件来进行不同的加载处理</li>
+</ul>
+<p>这些强大的api和美好的想法要想实现主要受制于两点：浏览器厂商的分裂api导致的兼容问题，浏览器本身的性能问题。希望随着时间的推移这两点会有改观。</p>
+<h2 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h2><p>《移动网页设计与开发html5+css3+javascript》一书并不是一本入门书籍，更不像是一本工具书籍。全书只有不到200页，只是作者在2013年时对html5，css3，es5比XHTML，css2.0，es3新增了哪些主要的新功能并做了一些简单的实例和讲解。2016年看了这本书后我又结合我认为的当前比较热门主流的技术做了一些摘录和总结，并加了一些自己的观点拼凑出了此篇笔记。当然此书也有盲点，对于很重要的css3能实现的2d，3d动画效果只是一笔带过；websocket网络长链接这种大家很看好的技术也没有直接讲解；2013年es6（js2015）还未定稿，对最近的es6语法并没有过多的讲解而且全书对于js方面讲解本身就不多。正好下一篇对《javascript高级程序设计》读书笔记可以更侧重的讲js部分。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js-h5/" rel="tag"># js h5</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/09/FE/cors_base1/" rel="next" title="web前后端跨域联调总结">
+                <i class="fa fa-chevron-left"></i> web前后端跨域联调总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/09/FE/js_stringHandle/" rel="prev" title="js字符串操作">
+                js字符串操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2123221"></script>
+<!-- UY END -->
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg"
+               alt="lanbos" />
+          <p class="site-author-name" itemprop="name">lanbos</p>
+          <p class="site-description motion-element" itemprop="description">这个人假装很懒，什么都没有留下</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/lanbos" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://git.oschina.net/lanbos_document" target="_blank" title="oschina">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  oschina
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lanbos" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#flexbox弹性盒子布局"><span class="nav-number">1.</span> <span class="nav-text">flexbox弹性盒子布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用flexbox"><span class="nav-number">1.1.</span> <span class="nav-text">1.使用flexbox</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-基本概念"><span class="nav-number">1.2.</span> <span class="nav-text">2.基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-属性设置及例子"><span class="nav-number">1.3.</span> <span class="nav-text">3.属性设置及例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#水平排列"><span class="nav-number">1.3.1.</span> <span class="nav-text">水平排列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平居右反排列"><span class="nav-number">1.3.2.</span> <span class="nav-text">水平居右反排列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平居右正排列"><span class="nav-number">1.3.3.</span> <span class="nav-text">水平居右正排列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平居中"><span class="nav-number">1.3.4.</span> <span class="nav-text">水平居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航常用的设置：等距水平排列"><span class="nav-number">1.3.5.</span> <span class="nav-text">导航常用的设置：等距水平排列</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子元素属性及特殊用法"><span class="nav-number">1.4.</span> <span class="nav-text">子元素属性及特殊用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于flexbox和响应式网站"><span class="nav-number">1.5.</span> <span class="nav-text">关于flexbox和响应式网站</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#要不要响应式"><span class="nav-number">1.5.1.</span> <span class="nav-text">要不要响应式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么时候不用flexbox"><span class="nav-number">1.5.2.</span> <span class="nav-text">什么时候不用flexbox</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web组件"><span class="nav-number">2.</span> <span class="nav-text">web组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板"><span class="nav-number">2.1.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式封装和自定义元素"><span class="nav-number">2.2.</span> <span class="nav-text">样式封装和自定义元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shadow-DOM"><span class="nav-number">2.3.</span> <span class="nav-text">shadow DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html5图片解决方案（svg图片和canvas）"><span class="nav-number">3.</span> <span class="nav-text">html5图片解决方案（svg图片和canvas）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html5多媒体"><span class="nav-number">4.</span> <span class="nav-text">html5多媒体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#终究会是网络多媒体时代"><span class="nav-number">4.1.</span> <span class="nav-text">终究会是网络多媒体时代</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见api分析"><span class="nav-number">4.2.</span> <span class="nav-text">常见api分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结-1"><span class="nav-number">4.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备API"><span class="nav-number">5.</span> <span class="nav-text">设备API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#web-storage"><span class="nav-number">5.1.</span> <span class="nav-text">web storage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他设备API"><span class="nav-number">5.2.</span> <span class="nav-text">其他设备API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结-2"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lanbos</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+<script type="text/javascript">
+  // Popup Window;
+  var isfetched = false;
+  // Search DB path;
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  // monitor main search box;
+
+  function proceedsearch() {
+    $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+    $('.popup').toggle();
+  }
+  // search function;
+  var searchFunc = function (path, search_id, content_id) {
+    $.ajax({
+      url: path,
+      dataType: "xml",
+      async: true,
+      success: function (xmlResponse) {
+        // get the contents from search data
+        isfetched = true;
+        $('.popup').detach().appendTo('.header-inner');
+        var datas = $("entry", xmlResponse).map(function () {
+          return {
+            title: $("title", this).text(),
+            content: $("content", this).text(),
+            url: $("url", this).text()
+          };
+        }).get();
+        var $input = document.getElementById(search_id);
+        var $resultContent = document.getElementById(content_id);
+        $input.addEventListener('input', function () {
+          var matchcounts = 0;
+          var str = '<ul class=\"search-result-list\">';
+          var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+          $resultContent.innerHTML = "";
+          if (this.value.trim().length > 1) {
+            // perform local searching
+            datas.forEach(function (data) {
+              var isMatch = false;
+              var content_index = [];
+              var data_title = data.title.trim().toLowerCase();
+              var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+              var data_url = decodeURIComponent(data.url);
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty titles and contents
+              if (data_title != '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+                  if (index_title >= 0 || index_content >= 0) {
+                    isMatch = true;
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                  }
+
+                });
+              }
+              // show search results
+              if (isMatch) {
+                matchcounts += 1;
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title +
+                  "</a>";
+                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+                  if (start < 0) {
+                    start = 0;
+                  }
+                  if (start == 0) {
+                    end = 50;
+                  }
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+                  var match_content = content.substring(start, end);
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" +
+                      keyword + "</b>");
+                  });
+
+                  str += "<p class=\"search-result\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            })
+          };
+          str += "</ul>";
+          if (matchcounts == 0) {
+            str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+          }
+          if (keywords == "") {
+            str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+          }
+          $resultContent.innerHTML = str;
+        });
+        proceedsearch();
+      }
+    }).fail(function (data, errStr, err) {
+      console.log(errStr);
+      console.log(err);
+    })
+  }
+
+  // handle and trigger popup window;
+  $('.popup-trigger').click(function (e) {
+    e.stopPropagation();
+    if (isfetched == false) {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+    } else {
+      proceedsearch();
+    };
+  });
+
+  function renderData(xmlResponse) {
+
+  }
+
+  $('.popup-btn-close').click(function (e) {
+    $('.popup').hide();
+    $(".popoverlay").remove();
+    $('body').css('overflow', '');
+  });
+  $('.popup').click(function (e) {
+    e.stopPropagation();
+  });
+
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

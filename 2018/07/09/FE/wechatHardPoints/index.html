@@ -1,0 +1,907 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="近期连续开发了几个微信公众号的项目并且和甲方配合很难，趟坑无数。罗列如下： 前端技术栈选择（非技术同学可以忽略不看）没有使用单纯的SPA开发方式，是多页面和单页面混合开发方式。~webpack对于多页面项目并不友好~，而且由于之前的项目使用了构建工具fis3，也对其比较了解，所以总体项目构建方式为fis3+vue+less的平滑过渡方案，并自己魔改了一个网上的脚手架，涉及到npm脚本直接写了简单的">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信公众号开发问题总结（一）">
+<meta property="og:url" content="http://lanbos.win/2018/07/09/FE/wechatHardPoints/index.html">
+<meta property="og:site_name" content="lanbos&#39;blog">
+<meta property="og:description" content="近期连续开发了几个微信公众号的项目并且和甲方配合很难，趟坑无数。罗列如下： 前端技术栈选择（非技术同学可以忽略不看）没有使用单纯的SPA开发方式，是多页面和单页面混合开发方式。~webpack对于多页面项目并不友好~，而且由于之前的项目使用了构建工具fis3，也对其比较了解，所以总体项目构建方式为fis3+vue+less的平滑过渡方案，并自己魔改了一个网上的脚手架，涉及到npm脚本直接写了简单的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-09T08:02:30.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信公众号开发问题总结（一）">
+<meta name="twitter:description" content="近期连续开发了几个微信公众号的项目并且和甲方配合很难，趟坑无数。罗列如下： 前端技术栈选择（非技术同学可以忽略不看）没有使用单纯的SPA开发方式，是多页面和单页面混合开发方式。~webpack对于多页面项目并不友好~，而且由于之前的项目使用了构建工具fis3，也对其比较了解，所以总体项目构建方式为fis3+vue+less的平滑过渡方案，并自己魔改了一个网上的脚手架，涉及到npm脚本直接写了简单的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanbos.win/2018/07/09/FE/wechatHardPoints/"/>
+
+
+
+
+
+  <title> 微信公众号开发问题总结（一） | lanbos'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lanbos'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">这个人假装很懒，什么都没有留下</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://lanbos.win/2018/07/09/FE/wechatHardPoints/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="lanbos">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="lanbos'blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="lanbos'blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                微信公众号开发问题总结（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-09T16:02:30+08:00">
+                2018-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coder/" itemprop="url" rel="index">
+                    <span itemprop="name">码畜相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>近期连续开发了几个微信公众号的项目并且和甲方配合很难，趟坑无数。罗列如下：</p>
+<h2 id="前端技术栈选择（非技术同学可以忽略不看）"><a href="#前端技术栈选择（非技术同学可以忽略不看）" class="headerlink" title="前端技术栈选择（非技术同学可以忽略不看）"></a>前端技术栈选择（非技术同学可以忽略不看）</h2><p>没有使用单纯的SPA开发方式，是多页面和单页面混合开发方式。<del>~<code>webpack</code>对于多页面项目并不友好</del>~，而且由于之前的项目使用了构建工具<code>fis3</code>，也对其比较了解，所以总体项目构建方式为fis3+vue+less的平滑过渡方案，并自己魔改了一个网上的脚手架，涉及到npm脚本直接写了简单的bash或者python，这套脚手架方案不推荐复用了,随后会弄一个<code>webpack</code>多页面的解决方案，但总体思想是模块化和组件化，js模块、vue组件和less文件还是可以在今后的项目中复用。脚手架地址如下：<br><code>https://gitee.com/lanbos_document/vue_fis3_ts_less/tree/vuex/</code><br>vue的ui框架使用了<a href="https://didi.github.io/cube-ui/#/zh-CN/docs/introduction" target="_blank" rel="noopener">cube-ui</a>（滴滴的ui组件库）</p>
+<blockquote>
+<p>注：最新项目使用了webpack完成了对多页面项目的搭建<br><a id="more"></a></p>
+<h2 id="vue-better-scroll（非技术同学可以忽略不看）"><a href="#vue-better-scroll（非技术同学可以忽略不看）" class="headerlink" title="vue+better-scroll（非技术同学可以忽略不看）"></a>vue+better-scroll（非技术同学可以忽略不看）</h2><p>为保证更好的滑动体验，使用了cube-ui scroll模块。首先需要引入对应的样式文件，并且</p>
+<ol>
+<li>需要给父级一个很大的固定高度（window.innerHeight）</li>
+<li>设置css：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.cube-scroll-wrapper</span>&#123;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h2 id="android手机当字体小于12px时会导致文字整体偏上-（设计同学敲黑板）"><a href="#android手机当字体小于12px时会导致文字整体偏上-（设计同学敲黑板）" class="headerlink" title="android手机当字体小于12px时会导致文字整体偏上 （设计同学敲黑板）"></a>android手机当字体小于12px时会导致文字整体偏上 （设计同学敲黑板）</h2><p>(<a href="http://imweb.io/topic/5848d0fc9be501ba17b10a94)：" target="_blank" rel="noopener">http://imweb.io/topic/5848d0fc9be501ba17b10a94)：</a><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>testtesttesttesttest<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123; <span class="attribute">display</span>: table; &#125;<span class="selector-class">.content</span> &#123; <span class="attribute">background-color</span>: gray; <span class="attribute">font-size</span>: <span class="number">10px</span>; <span class="attribute">display</span>: table-cell; <span class="attribute">vertical-align</span>: middle; &#125;</span><br></pre></td></tr></table></figure>
+<p>内嵌一层，并用table-cell来解决(不好使，测试了各种方式无法解决，<code>尽量不要使用12px以下的文字</code>)</p>
+<h2 id="微信jssdk版本-（非技术同学可以忽略不看）"><a href="#微信jssdk版本-（非技术同学可以忽略不看）" class="headerlink" title="微信jssdk版本 （非技术同学可以忽略不看）"></a>微信jssdk版本 （非技术同学可以忽略不看）</h2><p>把jssdk更新到1.3.1版本，微信官方文档上的1.1版本很多功能不完善，并没有提供新版本的更新说明，尝试找到了1.3.1版本，更新后满足了很多Android上之前没有的功能。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//res.wx.qq.com/open/js/jweixin-1.3.1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="解决IOS微信webview后退不执行JS的问题（非技术同学可以忽略不看）"><a href="#解决IOS微信webview后退不执行JS的问题（非技术同学可以忽略不看）" class="headerlink" title="解决IOS微信webview后退不执行JS的问题（非技术同学可以忽略不看）"></a>解决IOS微信webview后退不执行JS的问题（非技术同学可以忽略不看）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">      <span class="comment">//解决IOS微信webview后退不执行JS的问题</span></span><br><span class="line"><span class="built_in">window</span>.onpageshow = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (event.persisted) &#123;</span><br><span class="line">        <span class="built_in">window</span>.location.reload();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p>我们可以满足甲方提出的大多数动画效果，但是要明白复杂的动画需要使用逐帧动画技术，即需要设计同学做出动画的每一帧，我们使用css3动画技术进行播放。为保证动画流畅一秒大约为8~12帧，需要设计同学大量的工作，并且要与前端开发的配合调试。动画越复杂需要图片数量越多，会导致网页加载等待时间长，耗费用户大量流量等问题。</p>
+<h2 id="声音和震动"><a href="#声音和震动" class="headerlink" title="声音和震动"></a>声音和震动</h2><p>除了动画，甲方提出了在页面中加入声音和震动的需求。但是这些会涉及到各种手机的兼容性问题。（1代表支持，0代表不支持）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">安卓机</th>
+<th style="text-align:center">苹果机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">声音播放</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">震动</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">声音自动播放</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">声音叠加</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>(注意：iPhone上声音自动播放的问题可以借助微信jssdk在<code>wx.ready</code>的回调函数中实现)<br>iphone只支持一次播放一个声音，不允许同时播放多个声音。总之iphone上对多媒体交互限制性比较严格，</p>
+<blockquote>
+<p>具体有文献如下：<br><a href="https://www.ibm.com/developerworks/cn/web/wa-ioshtml5/index.html。" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/web/wa-ioshtml5/index.html。</a></p>
+</blockquote>
+<p>对此我们采用优雅兼容的方式，判断出用户的手机类型，对应使用不同的处理方式，只能尽量保证体验一致。</p>
+<h2 id="x5内核对用户http协议的代理问题-无法获取Android用户位置问题"><a href="#x5内核对用户http协议的代理问题-无法获取Android用户位置问题" class="headerlink" title="x5内核对用户http协议的代理问题,无法获取Android用户位置问题"></a>x5内核对用户http协议的代理问题,无法获取Android用户位置问题</h2><p>当前越来越多的网站使用了更安全的<a href="https://www.chinassl.net/ssl_industry_news/n561.html" target="_blank" rel="noopener">https协议</a>，如果没有使用https协议的话微信（腾讯x5浏览器内核）会私自代理你的网络请求，导致无法获取用户位置等问题。（<a href="https://weibo.com/p/1001603863171138998679?mod=zwenzhang" target="_blank" rel="noopener">微信浏览器内核（QQ浏览器X5内核）在用户不知情情况下代理访问http页面</a>）。而且下一步微信可能会效仿苹果（也是国际上的趋势）必须要求在其内使用https协议，否则网页会被列为不安全网页，甚至不允许访问。</p>
+<h2 id="设计时对文案长短和数字长短的考虑"><a href="#设计时对文案长短和数字长短的考虑" class="headerlink" title="设计时对文案长短和数字长短的考虑"></a>设计时对文案长短和数字长短的考虑</h2><p>这是前端和设计师长久以来一直面对的问题了，在开发和设计时要对大数字和很长的文案有预估。较长的文案有折行和用省略号表示的情况出现，要有心理预期。对于非常大的数字，随后会写个模块封装一下万，千万，和亿的显示（关于阿拉伯数字和中文数字表达是一个很有趣的算法题）。</p>
+<h2 id="新型手机18：9比例的适配"><a href="#新型手机18：9比例的适配" class="headerlink" title="新型手机18：9比例的适配"></a>新型手机18：9比例的适配</h2><p>越来越多的手机使用18：9所谓的全面屏设计，导致在活动页面这种需要全屏铺满的页面中适配比较麻烦，当前使用了淘宝的<code>amfe-flexible</code>和构建阶段的插件<code>px2rem</code>.自动将px适配到相对单位rem，并能适应各种尺寸的设计图。具体如下：<br>自适应布局：<br>淘宝js包：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm installl amfe-flexible</span><br><span class="line">npm install fis3-preprocessor-px2rem -g</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//fis-conf</span></span><br><span class="line">fis.match(<span class="string">'test.css'</span>, &#123;</span><br><span class="line">   preprocessor: fis.plugin(<span class="string">'px2rem'</span>,&#123;</span><br><span class="line">           designWidth: <span class="number">640</span></span><br><span class="line">   &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> flexible <span class="keyword">from</span> <span class="string">'amfe-flexible'</span>;</span><br></pre></td></tr></table></figure>
+<p>webpack 中使用 <a href="https://www.npmjs.com/package/px2rem-loader" target="_blank" rel="noopener">https://www.npmjs.com/package/px2rem-loader</a></p>
+<h2 id="微信授权和分享相关的接口调试"><a href="#微信授权和分享相关的接口调试" class="headerlink" title="微信授权和分享相关的接口调试"></a>微信授权和分享相关的接口调试</h2><p>这方面需要后台支持，基本思路就是用中转页面，或者接口重定向到</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/09/FE/regex_base01/" rel="next" title="正则表达式学习（转自github）">
+                <i class="fa fa-chevron-left"></i> 正则表达式学习（转自github）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/09/FE/wepackPages/" rel="prev" title="webpack多页面项目实践">
+                webpack多页面项目实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2123221"></script>
+<!-- UY END -->
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg"
+               alt="lanbos" />
+          <p class="site-author-name" itemprop="name">lanbos</p>
+          <p class="site-description motion-element" itemprop="description">这个人假装很懒，什么都没有留下</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/lanbos" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://git.oschina.net/lanbos_document" target="_blank" title="oschina">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  oschina
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lanbos" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端技术栈选择（非技术同学可以忽略不看）"><span class="nav-number">1.</span> <span class="nav-text">前端技术栈选择（非技术同学可以忽略不看）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-better-scroll（非技术同学可以忽略不看）"><span class="nav-number">2.</span> <span class="nav-text">vue+better-scroll（非技术同学可以忽略不看）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android手机当字体小于12px时会导致文字整体偏上-（设计同学敲黑板）"><span class="nav-number">3.</span> <span class="nav-text">android手机当字体小于12px时会导致文字整体偏上 （设计同学敲黑板）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信jssdk版本-（非技术同学可以忽略不看）"><span class="nav-number">4.</span> <span class="nav-text">微信jssdk版本 （非技术同学可以忽略不看）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决IOS微信webview后退不执行JS的问题（非技术同学可以忽略不看）"><span class="nav-number">5.</span> <span class="nav-text">解决IOS微信webview后退不执行JS的问题（非技术同学可以忽略不看）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动画"><span class="nav-number">6.</span> <span class="nav-text">动画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#声音和震动"><span class="nav-number">7.</span> <span class="nav-text">声音和震动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x5内核对用户http协议的代理问题-无法获取Android用户位置问题"><span class="nav-number">8.</span> <span class="nav-text">x5内核对用户http协议的代理问题,无法获取Android用户位置问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计时对文案长短和数字长短的考虑"><span class="nav-number">9.</span> <span class="nav-text">设计时对文案长短和数字长短的考虑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新型手机18：9比例的适配"><span class="nav-number">10.</span> <span class="nav-text">新型手机18：9比例的适配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信授权和分享相关的接口调试"><span class="nav-number">11.</span> <span class="nav-text">微信授权和分享相关的接口调试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lanbos</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+<script type="text/javascript">
+  // Popup Window;
+  var isfetched = false;
+  // Search DB path;
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  // monitor main search box;
+
+  function proceedsearch() {
+    $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+    $('.popup').toggle();
+  }
+  // search function;
+  var searchFunc = function (path, search_id, content_id) {
+    $.ajax({
+      url: path,
+      dataType: "xml",
+      async: true,
+      success: function (xmlResponse) {
+        // get the contents from search data
+        isfetched = true;
+        $('.popup').detach().appendTo('.header-inner');
+        var datas = $("entry", xmlResponse).map(function () {
+          return {
+            title: $("title", this).text(),
+            content: $("content", this).text(),
+            url: $("url", this).text()
+          };
+        }).get();
+        var $input = document.getElementById(search_id);
+        var $resultContent = document.getElementById(content_id);
+        $input.addEventListener('input', function () {
+          var matchcounts = 0;
+          var str = '<ul class=\"search-result-list\">';
+          var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+          $resultContent.innerHTML = "";
+          if (this.value.trim().length > 1) {
+            // perform local searching
+            datas.forEach(function (data) {
+              var isMatch = false;
+              var content_index = [];
+              var data_title = data.title.trim().toLowerCase();
+              var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+              var data_url = decodeURIComponent(data.url);
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty titles and contents
+              if (data_title != '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+                  if (index_title >= 0 || index_content >= 0) {
+                    isMatch = true;
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                  }
+
+                });
+              }
+              // show search results
+              if (isMatch) {
+                matchcounts += 1;
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title +
+                  "</a>";
+                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+                  if (start < 0) {
+                    start = 0;
+                  }
+                  if (start == 0) {
+                    end = 50;
+                  }
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+                  var match_content = content.substring(start, end);
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" +
+                      keyword + "</b>");
+                  });
+
+                  str += "<p class=\"search-result\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            })
+          };
+          str += "</ul>";
+          if (matchcounts == 0) {
+            str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+          }
+          if (keywords == "") {
+            str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+          }
+          $resultContent.innerHTML = str;
+        });
+        proceedsearch();
+      }
+    }).fail(function (data, errStr, err) {
+      console.log(errStr);
+      console.log(err);
+    })
+  }
+
+  // handle and trigger popup window;
+  $('.popup-trigger').click(function (e) {
+    e.stopPropagation();
+    if (isfetched == false) {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+    } else {
+      proceedsearch();
+    };
+  });
+
+  function renderData(xmlResponse) {
+
+  }
+
+  $('.popup-btn-close').click(function (e) {
+    $('.popup').hide();
+    $(".popoverlay").remove();
+    $('body').css('overflow', '');
+  });
+  $('.popup').click(function (e) {
+    e.stopPropagation();
+  });
+
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

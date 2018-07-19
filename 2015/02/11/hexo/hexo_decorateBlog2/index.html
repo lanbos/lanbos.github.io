@@ -1,0 +1,863 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hexo,博客,hexo3,blog,github pages,免费个人博客" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="设置分类列表在_config.yml中设置categories:会让文章属于哪个分来，如果分类用了中文的话，路径也会出现中文，这不是我们想看到的效果，这时在配置文件中的Category &amp;amp; Tag可以更改分类的路径，类似于：1234567# Category &amp;amp; Tagdefault_category: uncategorizedcategory_map:	编程: programm">
+<meta name="keywords" content="hexo,博客,hexo3,blog,github pages,免费个人博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo装饰(二)">
+<meta property="og:url" content="http://lanbos.win/2015/02/11/hexo/hexo_decorateBlog2/index.html">
+<meta property="og:site_name" content="lanbos&#39;blog">
+<meta property="og:description" content="设置分类列表在_config.yml中设置categories:会让文章属于哪个分来，如果分类用了中文的话，路径也会出现中文，这不是我们想看到的效果，这时在配置文件中的Category &amp;amp; Tag可以更改分类的路径，类似于：1234567# Category &amp;amp; Tagdefault_category: uncategorizedcategory_map:	编程: programm">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-09T08:02:30.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo装饰(二)">
+<meta name="twitter:description" content="设置分类列表在_config.yml中设置categories:会让文章属于哪个分来，如果分类用了中文的话，路径也会出现中文，这不是我们想看到的效果，这时在配置文件中的Category &amp;amp; Tag可以更改分类的路径，类似于：1234567# Category &amp;amp; Tagdefault_category: uncategorizedcategory_map:	编程: programm">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanbos.win/2015/02/11/hexo/hexo_decorateBlog2/"/>
+
+
+
+
+
+  <title> hexo装饰(二) | lanbos'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lanbos'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">这个人假装很懒，什么都没有留下</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://lanbos.win/2015/02/11/hexo/hexo_decorateBlog2/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="lanbos">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="lanbos'blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="lanbos'blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                hexo装饰(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-02-11T08:55:29+08:00">
+                2015-02-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coder/" itemprop="url" rel="index">
+                    <span itemprop="name">码畜相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="设置分类列表"><a href="#设置分类列表" class="headerlink" title="设置分类列表"></a>设置分类列表</h2><p>在_config.yml中设置<em>categories:</em>会让文章属于哪个分来，如果分类用了中文的话，路径也会出现中文，这不是我们想看到的效果，这时在配置文件中的<em>Category &amp; Tag</em>可以更改分类的路径，类似于：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Category &amp; Tag</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncategorized</span></span><br><span class="line"><span class="attr">category_map:</span></span><br><span class="line">	<span class="string">编程:</span> <span class="string">programming</span></span><br><span class="line">	<span class="string">生活:</span> <span class="string">life</span></span><br><span class="line">	<span class="string">其他:</span> <span class="string">other</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="light主题格式优化"><a href="#light主题格式优化" class="headerlink" title="light主题格式优化"></a>light主题格式优化</h2><p>light主题的引用模块和强调模块不太符合我的审美，找到了/themes/light/source/css/_partial/article.styl，后面加入<br><figure class="highlight styl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.entry</span><br><span class="line">  em</span><br><span class="line">    <span class="attribute">background</span> <span class="number">#ddd</span></span><br><span class="line">    <span class="attribute">font-style</span> normal</span><br><span class="line">    <span class="attribute">padding</span> <span class="number">0</span> <span class="number">4px</span></span><br><span class="line"><span class="selector-tag">article</span> <span class="selector-class">.entry</span> blockquote</span><br><span class="line">  <span class="attribute">border-left</span>  <span class="number">5px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">  <span class="attribute">background</span>  <span class="number">#eee</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">30px</span> <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: left;</span><br></pre></td></tr></table></figure></p>
+<p>其实就是对css格式的更改，这里要吐槽一下styl这种格式，一看就是python和ruby开发者搞出的东西，类似于jade这种反人类的语法，牺牲开发效率体现优雅。。。</p>
+<h2 id="light主题增加文章导航"><a href="#light主题增加文章导航" class="headerlink" title="light主题增加文章导航"></a>light主题增加文章导航</h2><p>网上找了写增加导航的方法，但是不适用与light主题，自己看了下官方api，文章导航主要借助了hexo提供的辅助函数toc：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- toc(str, [options]) %&gt;</span><br><span class="line">&lt;!-- 事例--&gt;</span><br><span class="line">&lt;%- toc(page.content) %&gt;</span><br></pre></td></tr></table></figure></p>
+<p>其实就是在toc函数中传入内容就行了。导航的位置根据不同的主题略有不同，网上很多主题是直接放在了/layout/_partial/article.ejs中，但是对于类似于light这样左右布局的主题，导航放在文章区域不太好调控样式，这样的主题导航适合放在右侧的sidebar中。但是直接放在sidebar中有一个问题，因为sidebar不仅仅在详情页面出现，而且会在主页和列表也出现，直接用上述方法的话在静态化编译的时候hexo直接会报错，而且导致主页和列表页无法打开，为了解决这个问题，引入了辅助函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- is_post() %&gt;</span><br></pre></td></tr></table></figure></p>
+<p>通过这个函数可以判断页面是否是详情页。<br>所以给light主题在右侧侧边栏添文章导航的方法是：<br>1.在/themes/light/layout/_widget中新建文件toc.ejs<br>2.在toc.ejs中填入以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%if(is_post())&#123; %&gt;</span><br><span class="line">&lt;div id=&quot;toc&quot; class=&quot;toc-article&quot;&gt;</span><br><span class="line">		        &lt;strong class=&quot;toc-title&quot;&gt;文章目录&lt;/strong&gt;</span><br><span class="line">		        &lt;%- toc(page.content) %&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;%&#125;%&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3.在/themes/light/_config.yml中更改相关内容：<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">widgets:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">toc</span> <span class="comment">#新增文章导航</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">search</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">category</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">tagcloud</span></span><br></pre></td></tr></table></figure></p>
+<p>4.在/themes/light/source/css/_partial/archive.styl中修改文章导航的样式比如增加：<br><figure class="highlight styl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#toc</span><br><span class="line">  <span class="attribute">background</span> <span class="number">#fff</span></span><br><span class="line">  <span class="attribute">box-shadow</span> <span class="number">1px</span> <span class="number">2px</span> <span class="number">3px</span> <span class="number">#ddd</span></span><br><span class="line">  <span class="attribute">padding</span> <span class="number">15px</span> <span class="number">20px</span></span><br><span class="line">  <span class="attribute">line-height</span> <span class="number">1.6</span></span><br><span class="line">  <span class="attribute">font-size</span> <span class="number">14px</span></span><br><span class="line">  <span class="attribute">margin-bottom</span> <span class="number">30px</span></span><br><span class="line">  strong</span><br><span class="line">    <span class="attribute">font-size</span> <span class="number">15px</span></span><br><span class="line">  ol</span><br><span class="line">    <span class="attribute">margin-top</span> <span class="number">5px</span></span><br><span class="line">    <span class="attribute">margin-left</span> <span class="number">0</span></span><br><span class="line">  .toc</span><br><span class="line">    <span class="attribute">padding</span> <span class="number">0</span></span><br><span class="line">    li</span><br><span class="line">      <span class="attribute">list-style-type</span> none</span><br><span class="line">  .toc-child</span><br><span class="line">    <span class="attribute">padding-left</span> <span class="number">20px</span></span><br></pre></td></tr></table></figure></p>
+<p>5.在/themes/light/layout/layout.ejs中找到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;aside id=&quot;sidebar&quot; class=&quot;alignright&quot;&gt;&lt;%- partial(&apos;_partial/sidebar&apos;, &#123;&#125;, &#123;cache: true&#125;) %&gt;&lt;/aside&gt;</span><br></pre></td></tr></table></figure></p>
+<p>将<em>cache:true</em>改为<em>cache:false</em>因为这里调用了缓存机制，不关闭缓存机制的话在文章页面会继承首页的sidebar，文章列表不会出现。</p>
+<h3 id="文章导航优化"><a href="#文章导航优化" class="headerlink" title="文章导航优化"></a>文章导航优化</h3><p>这样一个light主题的文章导航的最基本样式就添加完成了，但是发现现在的文章导航是固定在sidebar第一块位置上的，当文章很长时每次还得拖回到顶部去查看文章导航会很不方便。我们需要的效果是初始情况下文章导航固定在sidebar右侧位置上，然后当文章滚动后，文章导航订在右侧固定的位置也就是fixed布局。这样明显就要有js的参与了。<br>1.首先在/themes/light/source/js中新建一个文件，名字随意，然后把以下代码考入：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lb_article = (<span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> _sideBarShow=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> scrollTop=$(<span class="string">"body"</span>).scrollTop();</span><br><span class="line">          <span class="keyword">if</span>(scrollTop&gt;<span class="number">160</span>)&#123;</span><br><span class="line">              $(<span class="string">"#toc"</span>).addClass(<span class="string">"toc-articleP"</span>);</span><br><span class="line">          &#125;<span class="keyword">else</span> <span class="keyword">if</span>(scrollTop&lt;=<span class="number">160</span>&amp;&amp;$(<span class="string">"#toc"</span>).has(<span class="string">"toc-articleP"</span>))&#123;</span><br><span class="line">             $(<span class="string">"#toc"</span>).removeClass(<span class="string">"toc-articleP"</span>);</span><br><span class="line">          &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">var</span> pub = &#123;</span><br><span class="line">    sidebar: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      _sideBarShow()</span><br><span class="line">      $(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        _sideBarShow()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="keyword">return</span> pub;</span><br><span class="line">&#125;)(jQuery);</span><br><span class="line">lb_article.sidebar();</span><br></pre></td></tr></table></figure></p>
+<p>2.在/themes/light/layout/_partial/after_footer.ejs中引入js文件既在文件最后添加：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"&lt;%- config.root %&gt;js/之前建立的文件名.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>3.在/themes/light/source/css/_partial/archive.styl中添加：<br><figure class="highlight styl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#sidebar</span> .toc-articleP</span><br><span class="line">    <span class="attribute">position</span> fixed</span><br><span class="line">    <span class="attribute">width</span> <span class="number">240px</span></span><br><span class="line">    <span class="attribute">background</span> <span class="number">#f4f4f4</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>到了主题优化部分大多是动前端的内容，找到对应的文件进行增加和修改就可以，ejs模板比较好理解，但是styl格式对于不长些ruby之类语言的人来说较为不习惯。对于light主题的优化就到这里，随后可能会利用前端知识添加一些背景图片，更改部分字体之类的小修改。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://ijiaober.github.io/" target="_blank" rel="noopener">GoonX的博客</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/02/10/hexo/hexo_decorateBlog/" rel="next" title="hexo装饰(一)">
+                <i class="fa fa-chevron-left"></i> hexo装饰(一)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/02/13/hexo/hexo_decorateBlog3/" rel="prev" title="hexo装饰(三)">
+                hexo装饰(三) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2123221"></script>
+<!-- UY END -->
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg"
+               alt="lanbos" />
+          <p class="site-author-name" itemprop="name">lanbos</p>
+          <p class="site-description motion-element" itemprop="description">这个人假装很懒，什么都没有留下</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/lanbos" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://git.oschina.net/lanbos_document" target="_blank" title="oschina">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  oschina
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lanbos" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置分类列表"><span class="nav-number">1.</span> <span class="nav-text">设置分类列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#light主题格式优化"><span class="nav-number">2.</span> <span class="nav-text">light主题格式优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#light主题增加文章导航"><span class="nav-number">3.</span> <span class="nav-text">light主题增加文章导航</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文章导航优化"><span class="nav-number">3.1.</span> <span class="nav-text">文章导航优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lanbos</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+<script type="text/javascript">
+  // Popup Window;
+  var isfetched = false;
+  // Search DB path;
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  // monitor main search box;
+
+  function proceedsearch() {
+    $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+    $('.popup').toggle();
+  }
+  // search function;
+  var searchFunc = function (path, search_id, content_id) {
+    $.ajax({
+      url: path,
+      dataType: "xml",
+      async: true,
+      success: function (xmlResponse) {
+        // get the contents from search data
+        isfetched = true;
+        $('.popup').detach().appendTo('.header-inner');
+        var datas = $("entry", xmlResponse).map(function () {
+          return {
+            title: $("title", this).text(),
+            content: $("content", this).text(),
+            url: $("url", this).text()
+          };
+        }).get();
+        var $input = document.getElementById(search_id);
+        var $resultContent = document.getElementById(content_id);
+        $input.addEventListener('input', function () {
+          var matchcounts = 0;
+          var str = '<ul class=\"search-result-list\">';
+          var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+          $resultContent.innerHTML = "";
+          if (this.value.trim().length > 1) {
+            // perform local searching
+            datas.forEach(function (data) {
+              var isMatch = false;
+              var content_index = [];
+              var data_title = data.title.trim().toLowerCase();
+              var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+              var data_url = decodeURIComponent(data.url);
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty titles and contents
+              if (data_title != '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+                  if (index_title >= 0 || index_content >= 0) {
+                    isMatch = true;
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                  }
+
+                });
+              }
+              // show search results
+              if (isMatch) {
+                matchcounts += 1;
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title +
+                  "</a>";
+                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+                  if (start < 0) {
+                    start = 0;
+                  }
+                  if (start == 0) {
+                    end = 50;
+                  }
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+                  var match_content = content.substring(start, end);
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" +
+                      keyword + "</b>");
+                  });
+
+                  str += "<p class=\"search-result\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            })
+          };
+          str += "</ul>";
+          if (matchcounts == 0) {
+            str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+          }
+          if (keywords == "") {
+            str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+          }
+          $resultContent.innerHTML = str;
+        });
+        proceedsearch();
+      }
+    }).fail(function (data, errStr, err) {
+      console.log(errStr);
+      console.log(err);
+    })
+  }
+
+  // handle and trigger popup window;
+  $('.popup-trigger').click(function (e) {
+    e.stopPropagation();
+    if (isfetched == false) {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+    } else {
+      proceedsearch();
+    };
+  });
+
+  function renderData(xmlResponse) {
+
+  }
+
+  $('.popup-btn-close').click(function (e) {
+    $('.popup').hide();
+    $(".popoverlay").remove();
+    $('body').css('overflow', '');
+  });
+  $('.popup').click(function (e) {
+    e.stopPropagation();
+  });
+
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

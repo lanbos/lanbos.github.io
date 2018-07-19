@@ -1,0 +1,955 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="代码编辑器," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="写在前面 评测的有,sublime,vscode,atom,brackets，hbuider,eclipse, jetbrains系列的webstorm,pycharm,phpstorm。  vim和EMACS不在测评列，部分ide虽在评测列但是用的不多可能不客观，宇宙第一ide(visual studio)没用过不评测。老古董notpad++等不评测。Dw这种非开发者使用工具不评测。  本人主要">
+<meta name="keywords" content="代码编辑器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="这些年折腾过的编辑器（web开发者编辑器评测）">
+<meta property="og:url" content="http://lanbos.win/2018/07/09/tools/editor_base01/index.html">
+<meta property="og:site_name" content="lanbos&#39;blog">
+<meta property="og:description" content="写在前面 评测的有,sublime,vscode,atom,brackets，hbuider,eclipse, jetbrains系列的webstorm,pycharm,phpstorm。  vim和EMACS不在测评列，部分ide虽在评测列但是用的不多可能不客观，宇宙第一ide(visual studio)没用过不评测。老古董notpad++等不评测。Dw这种非开发者使用工具不评测。  本人主要">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3tzbb5xtj20pv0hqwir.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3ucv6dohj20t40od0yo.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3uhm6yiwj20w10blgml.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3v2thu11j210m0l8gpe.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3vhdtgjij20x70cdn09.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3vu3z3tsj21270liaek.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3w925hrij20kt0cgte3.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj41a2tkm7j20mw08kdhb.jpg">
+<meta property="og:updated_time" content="2018-07-09T08:02:30.669Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="这些年折腾过的编辑器（web开发者编辑器评测）">
+<meta name="twitter:description" content="写在前面 评测的有,sublime,vscode,atom,brackets，hbuider,eclipse, jetbrains系列的webstorm,pycharm,phpstorm。  vim和EMACS不在测评列，部分ide虽在评测列但是用的不多可能不客观，宇宙第一ide(visual studio)没用过不评测。老古董notpad++等不评测。Dw这种非开发者使用工具不评测。  本人主要">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3tzbb5xtj20pv0hqwir.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanbos.win/2018/07/09/tools/editor_base01/"/>
+
+
+
+
+
+  <title> 这些年折腾过的编辑器（web开发者编辑器评测） | lanbos'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lanbos'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">这个人假装很懒，什么都没有留下</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://lanbos.win/2018/07/09/tools/editor_base01/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="lanbos">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="lanbos'blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="lanbos'blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                这些年折腾过的编辑器（web开发者编辑器评测）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-09T16:02:30+08:00">
+                2018-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/常用工具/" itemprop="url" rel="index">
+                    <span itemprop="name">常用工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><ol>
+<li><p>评测的有,<code>sublime</code>,<code>vscode</code>,<code>atom</code>,<code>brackets</code>，<code>hbuider</code>,<code>eclipse</code>, jetbrains系列的<code>webstorm</code>,<code>pycharm</code>,<code>phpstorm</code>。</p>
+</li>
+<li><p>vim和EMACS不在测评列，部分ide虽在评测列但是用的不多可能不客观，宇宙第一ide(visual studio)没用过不评测。老古董notpad++等不评测。Dw这种非开发者使用工具不评测。</p>
+</li>
+<li>本人主要使用mac，写web前端，少量写python，php等脚本语言，写c,java等需要编译的语言的请投vs和其他对应ide，markdown书写会在评测中占少量部分。</li>
+<li>本人认为合理的工作流是：简单预览和少量编辑的a编辑器加一个主力写代码的b编辑器。非要All in one的可以投vim和EMACS党。</li>
+</ol>
+<h1 id="评测维度"><a href="#评测维度" class="headerlink" title="评测维度"></a>评测维度</h1><p>维度不太全，每个维度0~5分，打分是个人观点，不客观或有错误的轻喷。。。</p>
+<ol>
+<li>易用性<br>对开发者操作使用友好程度，汉化情况，下载难度，是否收费等方面。</li>
+<li>功能性<br>主要是补全提示，代码跳转，debug等</li>
+<li>拓展性<br>包括插件数量（只是个人感觉的数量），社区，可自定义程度</li>
+<li>颜值<br>这个就是主观程度了，可以忽略不看。</li>
+<li>亮点<br>会写我觉得编辑器最大的亮点，不打分</li>
+<li>缺点<br>会写我觉得编辑器最大的缺点，不打分</li>
+</ol>
+<hr>
+<a id="more"></a>
+<h1 id="评测（后有图表）"><a href="#评测（后有图表）" class="headerlink" title="评测（后有图表）"></a>评测（后有图表）</h1><h2 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h2><p><img src="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3tzbb5xtj20pv0hqwir.jpg" alt=""></p>
+<ol>
+<li>易用性 3分 </li>
+<li>功能性 2分</li>
+<li>颜值 3分</li>
+<li>拓展性 3分</li>
+<li>亮点：秒启动，情怀</li>
+<li>缺点：略显老态</li>
+</ol>
+<hr>
+<p>这个应该是评测中大家使用最广的编辑器了，非常优秀的编辑器，也是现在我作为a编辑器来使用的，打文件秒启动这点可以说很难有替代品。sublime是半收费的，免费用户也可以正常使用只是保存时有烦人的弹窗。sublime的扩展性和功能性即便和近年踊跃出来的编辑器相比也不遑多让，经典的马卡龙配色也是很多开发者深爱的主题配色。略有不足是，插件安装时获取插件列表太慢甚至超时报错（可以下载插件列表自设本地服务加载解决）， 插件和配置文件维护方式和其他新出现的编辑器相比不太友好，期待这款编辑器能有更强大的生命力。</p>
+<h2 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h2><p><img src="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3ucv6dohj20t40od0yo.jpg" alt=""></p>
+<ol>
+<li>易用性 5分 </li>
+<li>功能性 3分</li>
+<li>颜值 5分</li>
+<li>拓展性 5分</li>
+<li>亮点：高颜值，完全开源，扩展性非常高</li>
+<li>缺点：性能堪忧</li>
+</ol>
+<hr>
+<p>Atom是github官方维护的编辑器基于nodejs开源项目electron，界面简洁大方，非常易于扩展和使用，对编辑markdown也算友好，在意颜值或喜欢折腾的朋友可以使用。至于性能的诟病据说官方在不断使用c++更改底层，随后可能彻底解决问题。</p>
+<h2 id="Brackets"><a href="#Brackets" class="headerlink" title="Brackets"></a>Brackets</h2><p><img src="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3uhm6yiwj20w10blgml.jpg" alt=""></p>
+<ol>
+<li>易用性 2分 </li>
+<li>功能性 3分</li>
+<li>颜值 4分</li>
+<li>拓展性 3分</li>
+<li>亮点：神奇的<code>cmd+e</code></li>
+<li>缺点：插件需要翻墙下载</li>
+</ol>
+<hr>
+<p>Brackets是Adobe官方维护的编辑器，同样基于nodejs，据说用了高端算法没有Atom编辑器的性能诟病，在实际使用过程中也没有卡顿情况。<code>ctrl+e</code>快捷键非常有意思，可以快速定位html标签对应的css样式。Adobe开发这款软件写html+css非常舒畅，对开发js及其他脚本语言也很友好，可惜插件商店被墙，而且下载应该走的是非http协议，无法挂ss下载，导致易用性和拓展性分低。</p>
+<h2 id="hbuider"><a href="#hbuider" class="headerlink" title="hbuider"></a>hbuider</h2><p><img src="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3v2thu11j210m0l8gpe.jpg" alt=""></p>
+<ol>
+<li>易用性 4分 </li>
+<li>功能性 4分</li>
+<li>颜值 4+分</li>
+<li>拓展性 1分</li>
+<li>亮点：前端便捷代码snippets，app开发生态</li>
+<li>缺点：拓展性低</li>
+</ol>
+<hr>
+<p>hbuider是国内基于eclipse制作的针对前端开发的编辑器。有非常便捷的前端代码块可以飞速开发，我现使用的编辑器的自定义snippets很多都是参考了hbuider代码块。因为是基于eclipse，相当于是ide了，补全和项目构建本身功能已经很强大。但是要想下载eclipse上的插件很多需要下载jdk，因为在底层更改了部分eclipse代码，部分插件下载了jdk也无法使用。hbuider有自身使用套壳js开发app的生态，也是亮点之一，不太了解不做深谈。最后说一下这款编辑器的<code>护眼绿</code>主题，本人是<code>Solarized Light</code>脑残粉，所以觉得很好看，给hbuider颜值打了高分。</p>
+<h2 id="eclipse（my-eclipse）"><a href="#eclipse（my-eclipse）" class="headerlink" title="eclipse（my-eclipse）"></a>eclipse（my-eclipse）</h2><p><img src="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3vhdtgjij20x70cdn09.jpg" alt=""></p>
+<ol>
+<li>易用性 3分 </li>
+<li>功能性 4分</li>
+<li>颜值 1分</li>
+<li>拓展性 4分</li>
+<li>亮点：情怀</li>
+<li>缺点：臃肿</li>
+</ol>
+<hr>
+<p>用eclipse的应该大都是java开发的同学。eclipse是sun公司出品为java开发者提供的一款强大的ide，但近年来有被jetbrains的idea取代的趋势。老程序员应该都有过体验，功能强大，但臃肿卡顿而且不好看。如今搞java的可以看看idea，搞前端的可以看看hbuider。。。</p>
+<h2 id="jetbrains系列的webstorm（js）-pycharm-python-phpstorm-php"><a href="#jetbrains系列的webstorm（js）-pycharm-python-phpstorm-php" class="headerlink" title="jetbrains系列的webstorm（js）,pycharm(python),phpstorm(php)"></a>jetbrains系列的<code>webstorm</code>（js）,<code>pycharm</code>(python),<code>phpstorm</code>(php)</h2><p><img src="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3vu3z3tsj21270liaek.jpg" alt=""></p>
+<ol>
+<li>易用性 2分 </li>
+<li>功能性 5分</li>
+<li>颜值 2+分</li>
+<li>拓展性 2分</li>
+<li>亮点：ide首选</li>
+<li>缺点：是ide</li>
+</ol>
+<hr>
+<p>如果一个开发者选择ide，而且不是在windows平台，那么jetbrains系列是首选。最强大的补全和项目构建功能，能交给机器的一切交给ide，开发者只负责开发逻辑，就是这么强大。至于扩展，ide本身足够强大就不用扩展。我不觉得jetbrains系列好看也没找到好看的皮肤。如果你能够接受用电脑性能换取其他的舒爽开发体验，那么再次强烈推荐jetbrains。</p>
+<h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><p><img src="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj3w925hrij20kt0cgte3.jpg" alt=""></p>
+<ol>
+<li>易用性 4分 </li>
+<li>功能性 4分</li>
+<li>颜值 4分</li>
+<li>拓展性 4分</li>
+<li>亮点：微软家出品，编辑markdown</li>
+<li>缺点：都不是满分</li>
+</ol>
+<hr>
+<p>最后的重头戏是我在用的第二个主力编辑器vscode。vscode各项评分没有短板，维护的团队也在很积极的更新，同样是用electron，却比Atom流畅的多。作为宇宙第一ide的轻巧版，vscode其实已经很强大了。vscode有自带终端，丰富的终端启动命令，集成git等等贴心的功能让vscode虽然没有sublime秒启动那么便捷，也没有Atom好看，插件不是最丰富的，功能没有一些ide那么强大，但其日常使用体验可以超过其他编辑器。更何况对于开发者来说用vscode编辑markdown的体验能秒杀一切其他md编辑器。</p>
+<h2 id="打分图表"><a href="#打分图表" class="headerlink" title="打分图表"></a>打分图表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">|     编辑器    | 易用性 | 功能性 | 颜值 | 拓展性 |                亮点               |         缺点         |</span><br><span class="line">|:-------------:|:------:|:------:|:----:|:------:|:---------------------------------:|:--------------------:|</span><br><span class="line">|    sublime    |    3   |    2   |   3  |    3   |            秒启动，情怀           | 略显老态 |</span><br><span class="line">|      Atom     |    5   |    3   |   5  |    5   |   高颜值，完全开源，扩展性非常高  |       性能堪忧       |</span><br><span class="line">|    Brackets   |    2   |    3   |   4  |    3   |           神奇的`cmd+e`           |   插件需要翻墙下载   |</span><br><span class="line">|    hbuider    |    4   |    4   |  4+  |    1   | 前端便捷代码snippets，app开发生态 |       拓展性低       |</span><br><span class="line">|    eclipse    |    3   |    4   |   1  |    4   |                情怀               |         臃肿         |</span><br><span class="line">| jetbrains系列 |    2   |    5   |  2+  |    2   |              ide首选              |         是ide        |</span><br><span class="line">|     vscode    |    4   |    4   |   4  |    4   |         微软家出品，编辑md        |      都不是满分      |</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/5c9d16d6ly1fj41a2tkm7j20mw08kdhb.jpg" alt=""></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>编辑器作为开发者的好伙伴是搭建一个舒适开发环境中重要的一环。现代程序员的编辑器大多不再是电影里那样的黑窗口直接用vi写文本了，功能强大的编辑器降低了程序员行业的入门门槛，让开发者更多精力放在开发逻辑上而不是环境搭建。<br>基本每个开发者都折腾过编辑器，每个编辑器都有不完美的地方，个人认为普通开发者应该把日常使用编辑器和开发ide使用场景分离，例如日常用编辑器sublime、vim、Atom、notpad++等轻型编辑器配合jetbrains系列，eclipse系列，vs系列使用，分离使用场景后才能让各编辑器发挥出最大能力。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/代码编辑器/" rel="tag"># 代码编辑器</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/09/reading/arithmetic_fun02/" rel="next" title="js的简单算法(二)">
+                <i class="fa fa-chevron-left"></i> js的简单算法(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/09/tools/h5ViewCommon/" rel="prev" title="移动端常见网页尺寸获取">
+                移动端常见网页尺寸获取 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2123221"></script>
+<!-- UY END -->
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg"
+               alt="lanbos" />
+          <p class="site-author-name" itemprop="name">lanbos</p>
+          <p class="site-description motion-element" itemprop="description">这个人假装很懒，什么都没有留下</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/lanbos" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://git.oschina.net/lanbos_document" target="_blank" title="oschina">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  oschina
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lanbos" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#评测维度"><span class="nav-number">2.</span> <span class="nav-text">评测维度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#评测（后有图表）"><span class="nav-number">3.</span> <span class="nav-text">评测（后有图表）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime"><span class="nav-number">3.1.</span> <span class="nav-text">sublime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Atom"><span class="nav-number">3.2.</span> <span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Brackets"><span class="nav-number">3.3.</span> <span class="nav-text">Brackets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbuider"><span class="nav-number">3.4.</span> <span class="nav-text">hbuider</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eclipse（my-eclipse）"><span class="nav-number">3.5.</span> <span class="nav-text">eclipse（my-eclipse）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jetbrains系列的webstorm（js）-pycharm-python-phpstorm-php"><span class="nav-number">3.6.</span> <span class="nav-text">jetbrains系列的webstorm（js）,pycharm(python),phpstorm(php)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode"><span class="nav-number">3.7.</span> <span class="nav-text">vscode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打分图表"><span class="nav-number">3.8.</span> <span class="nav-text">打分图表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lanbos</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+<script type="text/javascript">
+  // Popup Window;
+  var isfetched = false;
+  // Search DB path;
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  // monitor main search box;
+
+  function proceedsearch() {
+    $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+    $('.popup').toggle();
+  }
+  // search function;
+  var searchFunc = function (path, search_id, content_id) {
+    $.ajax({
+      url: path,
+      dataType: "xml",
+      async: true,
+      success: function (xmlResponse) {
+        // get the contents from search data
+        isfetched = true;
+        $('.popup').detach().appendTo('.header-inner');
+        var datas = $("entry", xmlResponse).map(function () {
+          return {
+            title: $("title", this).text(),
+            content: $("content", this).text(),
+            url: $("url", this).text()
+          };
+        }).get();
+        var $input = document.getElementById(search_id);
+        var $resultContent = document.getElementById(content_id);
+        $input.addEventListener('input', function () {
+          var matchcounts = 0;
+          var str = '<ul class=\"search-result-list\">';
+          var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+          $resultContent.innerHTML = "";
+          if (this.value.trim().length > 1) {
+            // perform local searching
+            datas.forEach(function (data) {
+              var isMatch = false;
+              var content_index = [];
+              var data_title = data.title.trim().toLowerCase();
+              var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+              var data_url = decodeURIComponent(data.url);
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty titles and contents
+              if (data_title != '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+                  if (index_title >= 0 || index_content >= 0) {
+                    isMatch = true;
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                  }
+
+                });
+              }
+              // show search results
+              if (isMatch) {
+                matchcounts += 1;
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title +
+                  "</a>";
+                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+                  if (start < 0) {
+                    start = 0;
+                  }
+                  if (start == 0) {
+                    end = 50;
+                  }
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+                  var match_content = content.substring(start, end);
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" +
+                      keyword + "</b>");
+                  });
+
+                  str += "<p class=\"search-result\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            })
+          };
+          str += "</ul>";
+          if (matchcounts == 0) {
+            str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+          }
+          if (keywords == "") {
+            str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+          }
+          $resultContent.innerHTML = str;
+        });
+        proceedsearch();
+      }
+    }).fail(function (data, errStr, err) {
+      console.log(errStr);
+      console.log(err);
+    })
+  }
+
+  // handle and trigger popup window;
+  $('.popup-trigger').click(function (e) {
+    e.stopPropagation();
+    if (isfetched == false) {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+    } else {
+      proceedsearch();
+    };
+  });
+
+  function renderData(xmlResponse) {
+
+  }
+
+  $('.popup-btn-close').click(function (e) {
+    $('.popup').hide();
+    $(".popoverlay").remove();
+    $('body').css('overflow', '');
+  });
+  $('.popup').click(function (e) {
+    e.stopPropagation();
+  });
+
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

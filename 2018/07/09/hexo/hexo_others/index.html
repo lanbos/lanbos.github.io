@@ -1,0 +1,872 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hexo,博客,hexo3,blog,github pages,免费个人博客" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文记录了一些hexo在使用过程中的一些较为高级使用方式。 草稿功能1.使用情景我习惯把自己的blog当做个人的私人笔记，虽然很多人不建议这么做，因为有各种其他的代替品如：为知笔记，印象笔记等，但是很多笔记不具备分享功能，或者分享功能会另外收费。blog天生具备的传播性很适合作为需要分享的笔记的载体，但之前了解的hexo只是普通的blog功能，作为个人笔记的话又缺少私密性。最近发现的hexo原本具">
+<meta name="keywords" content="hexo,博客,hexo3,blog,github pages,免费个人博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo其他问题">
+<meta property="og:url" content="http://lanbos.win/2018/07/09/hexo/hexo_others/index.html">
+<meta property="og:site_name" content="lanbos&#39;blog">
+<meta property="og:description" content="本文记录了一些hexo在使用过程中的一些较为高级使用方式。 草稿功能1.使用情景我习惯把自己的blog当做个人的私人笔记，虽然很多人不建议这么做，因为有各种其他的代替品如：为知笔记，印象笔记等，但是很多笔记不具备分享功能，或者分享功能会另外收费。blog天生具备的传播性很适合作为需要分享的笔记的载体，但之前了解的hexo只是普通的blog功能，作为个人笔记的话又缺少私密性。最近发现的hexo原本具">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1671183-4305eea4f746974b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://photo.yangmaoxin.cn/githubcoding.png">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/5c9d16d6ly1ficotrdqz9j20ge0etq43.jpg">
+<meta property="og:updated_time" content="2018-07-09T08:02:30.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo其他问题">
+<meta name="twitter:description" content="本文记录了一些hexo在使用过程中的一些较为高级使用方式。 草稿功能1.使用情景我习惯把自己的blog当做个人的私人笔记，虽然很多人不建议这么做，因为有各种其他的代替品如：为知笔记，印象笔记等，但是很多笔记不具备分享功能，或者分享功能会另外收费。blog天生具备的传播性很适合作为需要分享的笔记的载体，但之前了解的hexo只是普通的blog功能，作为个人笔记的话又缺少私密性。最近发现的hexo原本具">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1671183-4305eea4f746974b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lanbos.win/2018/07/09/hexo/hexo_others/"/>
+
+
+
+
+
+  <title> hexo其他问题 | lanbos'blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lanbos'blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">这个人假装很懒，什么都没有留下</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://lanbos.win/2018/07/09/hexo/hexo_others/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="lanbos">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="lanbos'blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="lanbos'blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                hexo其他问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-09T16:02:30+08:00">
+                2018-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/coder/" itemprop="url" rel="index">
+                    <span itemprop="name">码畜相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文记录了一些hexo在使用过程中的一些较为高级使用方式。</p>
+<h2 id="草稿功能"><a href="#草稿功能" class="headerlink" title="草稿功能"></a>草稿功能</h2><h3 id="1-使用情景"><a href="#1-使用情景" class="headerlink" title="1.使用情景"></a>1.使用情景</h3><p>我习惯把自己的blog当做个人的私人笔记，虽然很多人不建议这么做，因为有各种其他的代替品如：<a href="http://www.wiz.cn/" target="_blank" rel="noopener">为知笔记</a>，印象笔记等，但是很多笔记不具备分享功能，或者分享功能会另外收费。blog天生具备的传播性很适合作为需要分享的笔记的载体，但之前了解的hexo只是普通的blog功能，作为个人笔记的话又缺少私密性。最近发现的hexo原本具有的草稿功能可以完美解决这个问题。</p>
+<h3 id="2-创建草稿"><a href="#2-创建草稿" class="headerlink" title="2.创建草稿"></a>2.创建草稿</h3><p>首先进入<code>source/</code>目录，之前发布的正式blog都是在<code>_posts</code>目录下新建的markdown文件，若是想创建一篇草稿的话需要创建一个新的目录<code>_draft</code>,创建的草稿不会发布到github上，而且不设置的话hexo甚至不会处理草稿。<br><a id="more"></a></p>
+<h3 id="3-预览草稿"><a href="#3-预览草稿" class="headerlink" title="3.预览草稿"></a>3.预览草稿</h3><p>作为个人笔记的话当然草稿是需要自己能看到但是别人是无法看到的。首先打开<code>_config.yml</code>，设置<code>render_drafts</code>为<code>false</code>。然后重新启动hexo服务。变化命令为<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -p 5000 --draft</span><br></pre></td></tr></table></figure></p>
+<p>再预览的话就草稿就能显示出来了。再运行：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
+<p>会发现草稿不会提交到github上，但是可以在本地预览。若是想把草稿正式发布到blog上，一种做法是把草稿复制一份到<code>_posts</code>，然后再执行发布命令。或者用<code>publish</code>命令把草稿发布到正式blog中。</p>
+<h2 id="hexo命令备忘"><a href="#hexo命令备忘" class="headerlink" title="hexo命令备忘"></a>hexo命令备忘</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">新建blog</span></span><br><span class="line">hexo n &lt;title&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash">新建草稿</span></span><br><span class="line">hexo n draft &lt;title&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash">发布草稿到正式blog</span></span><br><span class="line">hexo publish &lt;title&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash">启动服务</span></span><br><span class="line">hexo s -p5000</span><br><span class="line"><span class="meta">#</span><span class="bash">启动服务并预览草稿</span></span><br><span class="line">hexo s -p5000 --draft</span><br><span class="line"><span class="meta">#</span><span class="bash">blog静态化</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="meta">#</span><span class="bash">blog静态化并发布</span></span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<h2 id="hexo同时发布到coding和github"><a href="#hexo同时发布到coding和github" class="headerlink" title="hexo同时发布到coding和github"></a>hexo同时发布到coding和github</h2><h3 id="1-情景"><a href="#1-情景" class="headerlink" title="1.情景"></a>1.情景</h3><p>github国内众所周知的原因不太稳定，国内有很多优秀的代码托管工具，我一直在用的是淘宝开源的git@osc(码云)，但是奈何之前git@osc没有github的pages功能，看到了<a href="http://www.jianshu.com/p/2cbf3e2f6d57" target="_blank" rel="noopener">这篇博文</a>,知道了coding平台支持pages的功能。</p>
+<h3 id="2-在coding上的配置"><a href="#2-在coding上的配置" class="headerlink" title="2.在coding上的配置"></a>2.在coding上的配置</h3><p>登录coding，注册登录就不提了，首先新建一个和自己用户命相同的公开项目，然后就是设置ssh:</p>
+<blockquote>
+<p>1.打开个人中心的SSH公匙<br>2.如果之前配置过GitHub的公匙的话直接打开,.ssh文件夹里面的_rsa.pub,比如我的是pvphero_rsa.pub,然后将里面的内容全部复制,填写到ssh_rsa公匙处,公匙的名称可以随便起,然后点击’添加’,再接着输入密码就可以完成添加了<br><img src="http://upload-images.jianshu.io/upload_images/1671183-4305eea4f746974b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>添加后测试一下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@git.coding.net</span><br></pre></td></tr></table></figure></p>
+<p>如果出现下面的提示则表示公匙添加成功了:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello shenzhenwei You've connected to Coding.net by SSH successfully!</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-hexo配置"><a href="#2-hexo配置" class="headerlink" title="2.hexo配置"></a>2.hexo配置</h3><p>首先配置_config.yml文件<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span></span><br><span class="line"><span class="attr">      github:</span> <span class="attr">https://github.com/lanbos/lanbos.github.io.git,master</span></span><br><span class="line"><span class="attr">      coding:</span> <span class="attr">https://git.coding.net/lanbos/lanbos.git,master</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="3-万网域名双线解析"><a href="#3-万网域名双线解析" class="headerlink" title="3.万网域名双线解析"></a>3.万网域名双线解析</h3><p>进入万网/阿里云后台，域名解析：<br><img src="http://photo.yangmaoxin.cn/githubcoding.png" alt=""><br>添加两条CNAME，分别解析，解析路线选择默认至Coding，海外IP至GitHub。</p>
+<h2 id="hexo单页运行js代码"><a href="#hexo单页运行js代码" class="headerlink" title="hexo单页运行js代码"></a>hexo单页运行js代码</h2><p>其实这是markdown语法的功能，但放在这里的话也算hexo的一点小奇技淫巧，有时候在某篇blog中需要运行单独的js，或者css、html，直接按照html语法写入就可以了，比如可以这么写：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 标题</span><br><span class="line">内容</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>html内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">p&#123;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">alert(<span class="string">"test"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这种混写的方式html、css、js代码都会生效，但是需要尽量少用，否则会破坏markdown文件的可读性。在标题处加入<code>layout: false</code>会使整片文章不引用公共的主题样式。</p>
+<h2 id="代替多说的评论系统"><a href="#代替多说的评论系统" class="headerlink" title="代替多说的评论系统"></a>代替多说的评论系统</h2><p>多说最近总报错，disqus又被墙，查了一下，网上说<a href="http://www.uyan.cc" target="_blank" rel="noopener">友言</a>比较好，用了一下非常简单，只需要注册让后拷贝代码到页面模板的对应位置即可，只不过这种免费的评论系统能维持多长时间就不知道了。</p>
+<h2 id="rsync将blog部署到自己的服务器"><a href="#rsync将blog部署到自己的服务器" class="headerlink" title="rsync将blog部署到自己的服务器"></a>rsync将blog部署到自己的服务器</h2><ol>
+<li>在<code>_config.yml</code>中进行如下配置，服务器端需要安装rsync<br><img src="https://ws1.sinaimg.cn/large/5c9d16d6ly1ficotrdqz9j20ge0etq43.jpg" alt=""></li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/09/FE/wepackPages/" rel="next" title="webpack多页面项目实践">
+                <i class="fa fa-chevron-left"></i> webpack多页面项目实践
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/09/hexo/hexo_problem01/" rel="prev" title="hexo遇到搜索问题小记">
+                hexo遇到搜索问题小记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+  <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2123221"></script>
+<!-- UY END -->
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ws1.sinaimg.cn/large/5c9d16d6gw1fbesf3zrhej209p09ftai.jpg"
+               alt="lanbos" />
+          <p class="site-author-name" itemprop="name">lanbos</p>
+          <p class="site-description motion-element" itemprop="description">这个人假装很懒，什么都没有留下</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/lanbos" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://git.oschina.net/lanbos_document" target="_blank" title="oschina">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  oschina
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lanbos" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#草稿功能"><span class="nav-number">1.</span> <span class="nav-text">草稿功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用情景"><span class="nav-number">1.1.</span> <span class="nav-text">1.使用情景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建草稿"><span class="nav-number">1.2.</span> <span class="nav-text">2.创建草稿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-预览草稿"><span class="nav-number">1.3.</span> <span class="nav-text">3.预览草稿</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo命令备忘"><span class="nav-number">2.</span> <span class="nav-text">hexo命令备忘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo同时发布到coding和github"><span class="nav-number">3.</span> <span class="nav-text">hexo同时发布到coding和github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-情景"><span class="nav-number">3.1.</span> <span class="nav-text">1.情景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-在coding上的配置"><span class="nav-number">3.2.</span> <span class="nav-text">2.在coding上的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-hexo配置"><span class="nav-number">3.3.</span> <span class="nav-text">2.hexo配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-万网域名双线解析"><span class="nav-number">3.4.</span> <span class="nav-text">3.万网域名双线解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo单页运行js代码"><span class="nav-number">4.</span> <span class="nav-text">hexo单页运行js代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代替多说的评论系统"><span class="nav-number">5.</span> <span class="nav-text">代替多说的评论系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rsync将blog部署到自己的服务器"><span class="nav-number">6.</span> <span class="nav-text">rsync将blog部署到自己的服务器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lanbos</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+  
+  
+<script type="text/javascript">
+  // Popup Window;
+  var isfetched = false;
+  // Search DB path;
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  // monitor main search box;
+
+  function proceedsearch() {
+    $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+    $('.popup').toggle();
+  }
+  // search function;
+  var searchFunc = function (path, search_id, content_id) {
+    $.ajax({
+      url: path,
+      dataType: "xml",
+      async: true,
+      success: function (xmlResponse) {
+        // get the contents from search data
+        isfetched = true;
+        $('.popup').detach().appendTo('.header-inner');
+        var datas = $("entry", xmlResponse).map(function () {
+          return {
+            title: $("title", this).text(),
+            content: $("content", this).text(),
+            url: $("url", this).text()
+          };
+        }).get();
+        var $input = document.getElementById(search_id);
+        var $resultContent = document.getElementById(content_id);
+        $input.addEventListener('input', function () {
+          var matchcounts = 0;
+          var str = '<ul class=\"search-result-list\">';
+          var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+          $resultContent.innerHTML = "";
+          if (this.value.trim().length > 1) {
+            // perform local searching
+            datas.forEach(function (data) {
+              var isMatch = false;
+              var content_index = [];
+              var data_title = data.title.trim().toLowerCase();
+              var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+              var data_url = decodeURIComponent(data.url);
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty titles and contents
+              if (data_title != '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+                  if (index_title >= 0 || index_content >= 0) {
+                    isMatch = true;
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                  }
+
+                });
+              }
+              // show search results
+              if (isMatch) {
+                matchcounts += 1;
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title +
+                  "</a>";
+                var content = data.content.trim().replace(/<[^>]+>/g, "");
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+                  if (start < 0) {
+                    start = 0;
+                  }
+                  if (start == 0) {
+                    end = 50;
+                  }
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+                  var match_content = content.substring(start, end);
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<b class=\"search-keyword\">" +
+                      keyword + "</b>");
+                  });
+
+                  str += "<p class=\"search-result\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            })
+          };
+          str += "</ul>";
+          if (matchcounts == 0) {
+            str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+          }
+          if (keywords == "") {
+            str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+          }
+          $resultContent.innerHTML = str;
+        });
+        proceedsearch();
+      }
+    }).fail(function (data, errStr, err) {
+      console.log(errStr);
+      console.log(err);
+    })
+  }
+
+  // handle and trigger popup window;
+  $('.popup-trigger').click(function (e) {
+    e.stopPropagation();
+    if (isfetched == false) {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+    } else {
+      proceedsearch();
+    };
+  });
+
+  function renderData(xmlResponse) {
+
+  }
+
+  $('.popup-btn-close').click(function (e) {
+    $('.popup').hide();
+    $(".popoverlay").remove();
+    $('body').css('overflow', '');
+  });
+  $('.popup').click(function (e) {
+    e.stopPropagation();
+  });
+
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
